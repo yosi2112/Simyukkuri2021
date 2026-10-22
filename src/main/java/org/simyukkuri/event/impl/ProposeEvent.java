@@ -81,7 +81,7 @@ public class ProposeEvent extends EventPacket {
 			targetBody.wakeup();
 			sourceBody.setCurrentEvent(this);
 			targetBody.setCurrentEvent(this);
-			int collisionX = YukkuriLogic.calcCollisionX(body, targetBody);
+			int collisionX = YukkuriLogic.calcCollisionX(sourceBody, targetBody);
 			if (sourceBody.canflyCheck()) {
 				sourceBody.moveToEvent(this, targetBody.getX() + collisionX, targetBody.getY(), targetBody.getZ());
 			} else {
@@ -120,7 +120,7 @@ public class ProposeEvent extends EventPacket {
 			return UpdateState.ABORT;
 		}
 
-		int collisionX = YukkuriLogic.calcCollisionX(body, targetBody);
+		int collisionX = YukkuriLogic.calcCollisionX(sourceBody, targetBody);
 		// 相手がつかまれているとき
 		if (targetBody.isGrabbed()) {
 			sourceBody.setEventResMessage(GameMessages.getMessage(sourceBody, MessagePool.Action.DontPreventUs), 30,

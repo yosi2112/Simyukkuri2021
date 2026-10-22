@@ -1459,12 +1459,12 @@ public abstract class Yukkuri extends SocialEntity {
 		if (isDead()) {
 			return;
 		}
-		e.setToX(toX);
-		e.setToY(toY);
-		e.setToZ(toZ);
 		destX = Math.max(0, Math.min(toX, Translate.getWorldWidth()));
 		destY = Math.max(0, Math.min(toY, Translate.getWorldHeight()));
 		destZ = Math.max(0, Math.min(toZ, Translate.getWorldDepth()));
+		e.setToX(destX);
+		e.setToY(destY);
+		e.setToZ(destZ);
 	}
 
 	/**
